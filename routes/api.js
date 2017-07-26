@@ -35,13 +35,18 @@ router.route('/v1')
 
     // GET all items
     .get(function(req, res) {
-        Test1.find(function(err, test1) {
-            if (err)
-            {
-                res.send(err);
-            }
 
-            res.json({status: true, data: test1});
+        Test1.find(
+            {}, 
+            null, 
+            {sort: {_id: -1}}, // _id DESC
+            function(err, test1) {  
+                if (err)
+                {
+                    res.send(err);
+                }
+
+                res.json({status: true, data: test1});
         });
     });
 
