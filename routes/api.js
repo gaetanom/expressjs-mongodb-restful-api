@@ -76,6 +76,7 @@ router.route('/v1/:id')
             }
 
             test1.name = req.body.name;  // update info
+            test1.lastName = req.body.lastName; // from request
 
             // save
             test1.save(function(err) {
